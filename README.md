@@ -9,6 +9,7 @@ npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
 npx tailwindcss init
 
 ## Configure Tailwind to remove unused styles in production
+```
   module.exports = {
 -  purge: [],
 +   purge: [
@@ -25,16 +26,17 @@ npx tailwindcss init
     },
     plugins: [],
   }
+```
 
 ## Configure Tailwind with Laravel Mix
 In your webpack.mix.js, add tailwindcss as a PostCSS plugin:
-
+```
  // webpack.mix.js
   mix.js("resources/js/app.js", "public/js")
     .postCss("resources/css/app.css", "public/css", [
      require("tailwindcss"),
     ]);
-
+```
 ## Include Tailwind in your CSS
 /* ./resources/css/app.css */
 @tailwind base;
