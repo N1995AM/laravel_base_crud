@@ -1,8 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Product CRUD</h1>
-<a class="btn btn-link float-end" href="{{ route('products.create') }}">Create Product</a>
+<hr>
+<div class="w-full flex justify-center ">
+    <div class="w-2/3 flex justify-between p-5 ">
+        <h1 class="text-3xl font-sans tracking-tighter">Product CRUD</h1>
+        <a class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('products.create') }}">Create Product</a>
+    </div>    
+</div>
+
 
 {{-- Display message --}}
 @if (session('success'))
@@ -11,24 +17,25 @@
     </div>
 @endif
 
-<table class="table table-striped table-hover">
+<div class="w-full flex justify-center">
+<table class="border-collapse border border-indigo-800 w-2/3">
     <thead>
         <tr></tr>
         <tr>
-            <th scope="col">Product ID</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Product Price</th>
-            <th scope="col">Action</th>
+            <th class="border border-indigo-600" scope="col">Product ID</th>
+            <th class="border border-indigo-600" scope="col">Product Name</th>
+            <th class="border border-indigo-600" scope="col">Product Price</th>
+            <th class="border border-indigo-600" scope="col">Action</th>
         </tr>
     </thead>
     <tbody>
 
         @foreach ($products as $product) {{-- Loop products --}}
         <tr>
-            <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $product->name }}</td>
-            <td>$ {{ $product->price }}</td>
-            <td>
+            <th class="border border-indigo-600" scope="row">{{ $loop->iteration }}</th>
+            <td class="border border-indigo-600">{{ $product->name }}</td>
+            <td class="border border-indigo-600">$ {{ $product->price }}</td>
+            <td class="border border-indigo-600">
 
                 <div class="dropdown"> {{-- Dropdown --}}
                     <button class="btn btn-danger btn-sm dropdown-toggle" type="button" id="actionDropdown"
@@ -56,6 +63,7 @@
 
     </tbody>
 </table>
+</div>
 
 
 @endsection
