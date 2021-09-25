@@ -32,30 +32,23 @@
 
         @foreach ($products as $product) {{-- Loop products --}}
         <tr>
-            <th class="border border-indigo-600" scope="row">{{ $loop->iteration }}</th>
-            <td class="border border-indigo-600">{{ $product->name }}</td>
-            <td class="border border-indigo-600">$ {{ $product->price }}</td>
-            <td class="border border-indigo-600">
+            <th class="border border-indigo-600 p-3" scope="row">{{ $loop->iteration }}</th>
+            <td class="border border-indigo-600 p-3">{{ $product->name }}</td>
+            <td class="border border-indigo-600 p-3">$ {{ $product->price }}</td>
+            <td class="border border-indigo-600 p-3">
 
-                <div class="dropdown"> {{-- Dropdown --}}
-                    <button class="btn btn-danger btn-sm dropdown-toggle" type="button" id="actionDropdown"
-                        data-mdb-toggle="dropdown" aria-expanded="false">
-                        Action
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="actionDropdown">
-                        <li><a class="dropdown-item" href="{{ route('products.show', $product->id) }}">View</a></li> {{-- View --}}
-                        <li><a class="dropdown-item" href="{{ route('products.edit', $product->id) }}">Edit</a></li> {{-- Edit --}}
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
+                <div class="">  
+                    <div class="flex w-full justify-end">
+                        <div class="pl-3"><a class="text-green-500" href="{{ route('products.show', $product->id) }}">View</a></div> {{-- View --}}
+                        <div class="pl-3"><a class="text-blue-500" href="{{ route('products.edit', $product->id) }}">Edit</a></div> {{-- Edit --}} 
+                        <div class="pl-3 text-red">
                             <form action="{{ route('products.destroy', $product->id) }}" method="post"> {{-- Delete --}}
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="dropdown-item">Delete</button>
+                                <button type="submit" class="text-white hover:text-red-500 bg-red-400 hover:bg-red-100 rounded-md p-2">Delete</button>
                             </form>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </td>
         </tr>
