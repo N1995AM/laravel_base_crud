@@ -55,3 +55,35 @@ In your webpack.mix.js, add tailwindcss as a PostCSS plugin:
   <!-- ... --->
 ```
 
+
+# Laravel Factory Test 😉
+
+## Factory Create
+
+```
+  php artisan make:factory Factoryname --model=Modelname
+```
+
+## Factory definition
+
+database/factories/Factoryfile.php
+
+```
+    public function definition()
+    {
+        return [
+            'name' => $this->faker->name(), 
+            'description' => $this->faker->sentence(10), 
+        ];
+    }
+```
+
+## Run with command Prompt
+
+```
+  ModelName::factory(10)->create()
+```
+There are more laravel factory faker types ...
+
+
+
